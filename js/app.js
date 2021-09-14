@@ -21,7 +21,7 @@ const showProducts = (products) => {
       <p> <b> Rating: ${rating} </b> </p>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button onclick="detailsInfo('${product.title}','${product.description}')" id="details-btn" class="btn btn-danger">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -29,16 +29,27 @@ const showProducts = (products) => {
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
+  console.log(price);
   updatePrice("price", price);
 
   updateTaxAndCharge();
   updateTotal();
   document.getElementById("total-Products").innerText = count;
 };
+ const detailsInfo = (name, des) => {
+   const h = document.getElementById('h');
+   const p = document.getElementById('des');
 
+   h.innerText = name;
+   p.innerText = des;
+
+   
+ }
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
+  
+  // const convertedNormalized = converted.toFixed(2);
   return converted;
 };
 
@@ -47,12 +58,17 @@ const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
   const convertPrice = parseFloat(value);
   const total = convertedOldPrice + convertPrice;
-  document.getElementById(id).innerText = total;
+  const normalizedTotal = total.toFixed(2);
+  document.getElementById(id).innerText = normalizedTotal;
 };
+
+const showDetails = (n, d) => {
+  
+}
 
 // set innerText function
 const setInnerText = (id, value) => {
-  document.getElementById(id).innerText = value;
+  document.getElementById(id).innerText = value.toFixed(2);
 };
 
 // update delivery charge and total Tax
@@ -77,7 +93,8 @@ const updateTotal = () => {
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
-  document.getElementById("total").innerText = grandTotal;
+  const grandTotalNormalized = grandTotal.toFixed(2);
+  document.getElementById("total").innerText = grandTotalNormalized;
 };
 
 

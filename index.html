@@ -18,19 +18,53 @@
 </head>
 
 <body>
-  <header></header>
-  <main class="main">
-    <div class=" d-flex justify-content-center mx-auto px-4 search-field">
-      <div class="">
-        <input id="input-field" class="search-field" type="text" />
-        <button type="button" class="btn btn-primary ml-0 mb-1 px-4 py-2 border-4  search-button" data-toggle="button" aria-pressed="false"
-          autocomplete="off" id="search-btn" onclick="loadProducts()">
-          Search
+  <header>
+     <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+      <div class="container">
+        <a class="navbar-brand" href="#"> <h2>Fashion Mansion</h2> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="#" >About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact us</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link" href="#" >Subscribe</a>
+            </li>
+            
+            
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button onclick="loadProducts()" class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
       </div>
+    </nav>
+  </header>
+  <main class="main mt-5">
+    
+
+    <div  id="div">
+
+      <h4 id="h"></h4>
+
+      <p id="des"></p>
+      
+
     </div>
 
-    <div class="row">
+    <div class="row mt-5">
       <div class="col-md-9 col-lg-9 col-sm-7">
         <div id="all-products" class="">
           
@@ -76,7 +110,7 @@
               </tr>
               <tr>
                 <th scope="row">Total</th>
-                <td colspan="2">$ <span id="total">0</span></td>
+                <td colspan="2">$ <span id="total">20</span></td>
                 <td></td>
               </tr>
             </tbody>
